@@ -3,12 +3,12 @@ require 'rake/clean'
 targets = ["paper", "conference", "competitiveFund"]
 targets.each do |target|
   desc "csv => tex"
-  task :"#{target}-csv2yaml"do |t|
+  task :"#{target}-csv2tex" do |t|
     Rake::Task["#{target}.yaml"].invoke
     if target != "competitiveFund"
       Rake::Task[:"#{target}-yaml2yaml"].invoke
     end
-    Rake::Task["#{target}.bib"].invoke  
+    Rake::Task["#{target}.tex"].invoke  
   end
 
   desc "csv => yaml"
@@ -18,18 +18,13 @@ targets.each do |target|
 
   desc "yaml => yaml"
   task :"#{target}-yaml2yaml" do |t|
-    system(*["ruby", "yaml2yaml.rb", "#{target}.yaml"])
+    system(*["ruby", "yaml2yaml.rb", target])
   end
 
   desc "yaml => tex"
   file "#{target}.tex" => ["#{target}.yaml", "#{target}.tex.erb"] do |t|
     system(*(["ruby", "yaml2tex.rb", target]))
   end
-
-  # desc "yaml => bibtex"
-  # file "#{target}.bib" => ["#{target}.yaml", "#{target}.bib.erb"] do |t|
-  #   system(*(["ruby", "yaml2bibtex.rb"] + t.sources + [t.name]))
-  # end
 end
 
 desc "tex => pdf"
