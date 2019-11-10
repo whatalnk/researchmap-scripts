@@ -1,0 +1,7 @@
+<% data.each do |entry| -%>
+  \item <%= entry['owner_ja'] %> 
+  <%= entry['grant_ja'] %>. 
+  「<%= entry['title_ja'] %>」. 
+  <%= entry['amount_total'].to_i / 10000 %>万円. 
+  (<%= "#{entry['period_from'][0..3]}.#{entry['period_from'][4..5]}" %>--<%= "#{entry['period_to'][0..3]}.#{entry['period_to'][4..5]}" %>)
+<% end -%>

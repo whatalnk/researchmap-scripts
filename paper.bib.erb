@@ -1,0 +1,12 @@
+<% data.each do |entry| -%>
+@Article{<%= entry['bibkey'] %>,
+  author = "<%= entry['author_ja'].gsub(',', ' and ') %>", 
+  title = "<%= entry['title_ja'] %>", 
+  journal = "<%= entry['journal_ja'] %>", 
+  year = "<%= entry['date'][0..3] %>", 
+  volume = "<%= entry['volume'] %>", 
+  number = "<%= entry['issue'] %>", 
+  pages = {<%= entry["page_start"] %>--<%= entry["page_end"] %>}
+}
+
+<% end -%>

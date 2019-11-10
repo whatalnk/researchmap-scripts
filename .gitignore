@@ -1,0 +1,13 @@
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.log
+*.pdf
+*.csv
+*.yaml
+*.bib
+competitiveFund.tex
+conference.tex
+paper.tex
+author.tex

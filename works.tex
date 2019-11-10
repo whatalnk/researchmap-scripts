@@ -1,0 +1,25 @@
+\documentclass[a4j]{jsarticle}
+\usepackage[dvipdfmx, margin=3cm, truedimen]{geometry}
+\usepackage{newtxtext, newtxmath}
+\usepackage{enumitem}
+\begin{document}
+\section*{研究業績目録}
+\begin{flushright}
+  \input{author.tex}
+\end{flushright}
+\subsection*{原著論文}
+\begin{enumerate}[leftmargin=*]
+  \input{paper.tex}
+\end{enumerate}
+
+\subsection*{学会発表}
+\begin{enumerate}[leftmargin=*]
+  \input{conference.tex}
+\end{enumerate}
+
+\subsection*{競争的研究資金}
+\begin{enumerate}[leftmargin=*]
+  \input{competitiveFund.tex}
+\end{enumerate}
+
+\end{document}

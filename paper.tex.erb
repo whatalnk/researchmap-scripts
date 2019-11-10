@@ -1,0 +1,11 @@
+  <% data.each do |entry| -%>
+  \item <%= entry['author_ja'] %>. 
+  <%= entry['title_ja'] %>.  
+  <%= entry['journal_ja'] %>, 
+  <%= entry['volume'] %>
+  <% if !entry['issue'].empty? -%>
+  (<%= entry['issue'] -%>)
+  <% end -%> , 
+  pp.<%= entry['page_start'] %>--<%= entry['page_end'] %>, 
+  <%= entry['date'][0..3] %>.
+  <% end -%>

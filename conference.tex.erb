@@ -1,0 +1,9 @@
+<% data.each do |entry| -%>
+  \item <%= entry['author_ja'] %>. 
+  <%= entry['title_ja'] %>.  
+  <%= entry['conf_ja'] %>, 
+  <%= entry['date'][0..3] %>.
+  <% if entry['confType2'] == '4' -%>
+  (ポスター)
+  <% end %>
+<% end -%>
