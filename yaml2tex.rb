@@ -14,7 +14,11 @@ YAML.load(File.read("#{target}.yaml")).each do |entry|
       if i == 0
         authors_ += authors[i]
       elsif i == n - 1
-        authors_ += ", and #{authors[i]}"
+        if n == 2
+          authors_ += " and #{authors[i]}"
+        else
+          authors_ += ", and #{authors[i]}"
+        end
       else
         authors_ += ", #{authors[i]}"
       end
