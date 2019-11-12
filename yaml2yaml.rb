@@ -16,6 +16,8 @@ out = []
 
 
 @data.each do |entry|
+  entry["author_ja"] = entry["author_ja"].gsub(Regexp.union("，", "、"), ",")
+  entry["author_en"] = entry["author_ja"].gsub(Regexp.union("，", "、"), ",")
   if entry["conf_ja"] == config["s"] || entry["language"] != "ja"
     entry["author_ja"] = entry["author_ja"].split(",").map{|x| x.split(" ").map{|y| y.capitalize}.join(" ")}.join(",")
     entry["author_en"] = entry["author_en"].split(",").map{|x| x.split(" ").map{|y| y.capitalize}.join(" ")}.join(",")
